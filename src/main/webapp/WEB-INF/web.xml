@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <!-- following was an attempt at removing RESTEasy in JBoss AS 7.1.1 so we could use jersey-server, but I gave into RESTEasy in the end and commented this out. -->
+    <!--
+    <servlet>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+    -->
+    <!-- https://issues.jboss.org/browse/AS7-1674 -->
+    <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+    <persistence-context-ref>
+        <persistence-context-ref-name>persistence/em</persistence-context-ref-name>
+        <persistence-unit-name>TodoService</persistence-unit-name>
+    </persistence-context-ref>
+    <!-- don't need this or the CORSFilter if page that uses services is in same domain -->
+    <filter>
+        <filter-name>CORSFilter</filter-name>
+        <filter-class>abrj.cors.CORSFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CORSFilter</filter-name>
+        <url-pattern>/api/*</url-pattern>
+    </filter-mapping>
+</web-app>
