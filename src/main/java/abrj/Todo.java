@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 
+// A lot of guidance here from Blaise Doughan's great posts on Java EE 6 services:
+// http://blog.bdoughan.com/2010/08/creating-restful-web-service-part-15.html
 @Entity
 @NamedQueries({
         // Feel free to use constants for named query names and perhaps the param names. Leaving out to reduce LOC.
@@ -14,7 +16,7 @@ import java.io.Serializable;
 })
 @XmlRootElement
 public class Todo implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
 
     @Id

@@ -10,6 +10,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+// A lot of guidance here from Blaise Doughan's great posts on Java EE 6 services:
+// http://blog.bdoughan.com/2010/08/creating-restful-web-service-part-15.html
 @Stateless
 @LocalBean
 @Path("todos")

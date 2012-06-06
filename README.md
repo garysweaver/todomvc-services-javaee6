@@ -11,12 +11,16 @@ If the webapp is deployed in a local JBoss instance, it's RESTful service URL is
 http://localhost:8080/todomvc-services-javaee6/todos
 
 It implements the following:
-* Get all records
+* Get all records & can optionally filter with ?owner=some_value
 * Get/push/put/delete a single record
 
-It also contains a non-RESTful call
+Currently, it is setup to circumvent same origin policy using a CORSFilter based on this [this example][cors], but specifies Access-Control-Allow-Headers as "x-requested-with". If using this for non-public/authenticated use, you can remove the cors package and the filter+filter-mapping from its web.xml.
 
-Currently, it is setup to circumvent same origin policy using a [CORSFilter][cors]. If using this for non-public/authenticated use, you can remove the cors package and the filter+filter-mapping from its web.xml.
+### Model
+
+Example collection (note: owner is optional):
+
+    [{"id":1,"title":"this is a test","completed":false,"owner":"guest"},{"id":2,"title":"this is a test","completed":false,"owner":"guest"}]
 
 ### Database
 
