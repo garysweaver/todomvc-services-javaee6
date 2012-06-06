@@ -49,18 +49,13 @@ public class TodoService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Todo> findTodos() {
-        // note: it works even if you don't specify class
-        return entityManager.createNamedQuery("findTodos", Todo.class).getResultList();
-    }
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("owner/{owner}")
-    public List<Todo> findTodos(@PathParam("owner") String owner) {
+    public List<Todo> findTodos(@QueryParam("owner") @DefaultValue("guest") String owner) {
+        // owner is a filter on the collection, e.g. .../todos?owner=abc
         // note: it works even if you don't specify class
         Query query = entityManager.createNamedQuery("findTodosByOwner", Todo.class);
-        query.setParameter("owner", owner);
+        if (owner!=null) {
+            query.setParameter("owner", owner);
+        }
         return query.getResultList();
     }
 }

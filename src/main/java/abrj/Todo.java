@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 @NamedQueries({
         // Feel free to use constants for named query names and perhaps the param names. Leaving out to reduce LOC.
-        @NamedQuery(name = "findTodos", query = "SELECT t FROM Todo t"),
+        // Can add more here as needed...
         @NamedQuery(name = "findTodosByOwner", query = "SELECT t FROM Todo t WHERE t.owner = :owner")
 })
 @XmlRootElement
