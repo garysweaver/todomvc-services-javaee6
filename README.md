@@ -1,7 +1,7 @@
 TodoMVC Services - Java EE 6
 =====
 
-An example of services to act as a backend for distributed TodoMVC services, written in Java EE 6 using JBoss AS 7.1.1.Final.
+An example of services to act as a backend for distributed [TodoMVC][todomvc] implementations, written in Java EE 6 using JBoss AS 7.1.1.Final.
 
 Has been tested in JBoss 7.1.1.Final in OS X 10.7.4.
 
@@ -64,6 +64,7 @@ For those with *nix, can test via curl with:
 
 Copyright (c) 2012 Gary S. Weaver, released under the [MIT license][lic].
 
+[todomvc]: https://github.com/addyosmani/todomvc
 [cors]: http://padcom13.blogspot.com/2011/09/cors-filter-for-java-applications.html
 [mvn]: http://maven.apache.org/download.html
 [jbossas]: http://www.jboss.org/jbossas/downloads/
